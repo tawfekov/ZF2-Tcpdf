@@ -5,8 +5,7 @@ use Zend\Mvc\MvcEvent;
 use Zend\ModuleManager\Feature\ConsoleUsageProviderInterface;
 use Zend\Console\Adapter\AdapterInterface as Console;
 use \TCPDF;
-//include '../../tcpdf/tcpdf/tcpdf.php';
-    
+
 class Module implements ConsoleUsageProviderInterface
 {
     public function getAutoloaderConfig()
@@ -36,8 +35,6 @@ class Module implements ConsoleUsageProviderInterface
             'factories' => array(
                 'tcpdf' => function(){
                     $config = $this->getConfig();
-                    var_dump($config);
-                    die;
                     return new TCPDF();
                 }
             ),
