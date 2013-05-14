@@ -35,7 +35,17 @@ class Module implements ConsoleUsageProviderInterface
             'factories' => array(
                 'tcpdf' => function(){
                     $config = $this->getConfig();
-                    return new TCPDF();
+                    $pdf =  new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+                    // set some language dependent data:
+                    $lg = $config["defaults"]["language"];
+                    //set some language-dependent strings
+                    $pdf->setLanguageArray($lg);
+                    $pdf->setRTL(true);
+                    $pdf->setPrintHeader(false);
+                    $pdf->setPrintFooter(false);
+                    $font = $pdf->addTTFfont(__DIR__ . "/../../../data/TimesNewRoman.ttf", 'TrueTypeUnicode', '', 96);
+                    $pdf->SetFont($font, '', 10);
+                    return $pdf ;
                 }
             ),
         );

@@ -14,10 +14,10 @@ return array(
         ),
         'encoding' => 'UTF-8',
         'language' => array(
-            'meta_charset' => 'UTF-8',
-            'meta_dir' => 'ltr',
-            'meta_language' => 'en',
-            'page' => 'page',
+            'a_meta_charset' => 'UTF-8',
+            'a_meta_dir' => 'ltr',
+            'a_meta_language' => 'en',
+            'w_page' => 'page',
         )
     )
 );
